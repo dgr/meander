@@ -34,7 +34,7 @@ Before we dive in, however, let's define some concepts that appear throughout th
     If the *input* matches the *pattern* then Meander evaluates the corresponding *expression* and returns the result.
     Depending on the matching macro that is being used, this may happen multiple times.
   * *pattern* --
-    The *pattern* is composed of literal data and Meander's matching operators (described in more detail in [Operator Overview](./operator-overview.md)).
+    The *pattern* is composed of literal data and Meander's matching operators (described in more detail in [Pattern Matching](./patterns.md)).
   * *expression* --
     If the *input* matches the *pattern* then Meander evaluates the corresponding *expression* and returns the result.
     In the `match`, `search`, and `find` macros, the *expression* is arbitrary Clojure code that is evaluated normally.
@@ -98,10 +98,10 @@ Meander can match against various types of Clojure data structures, too.
 ```
 
 Here, we're matching against a vector.
-As you'll see when we review the [operators](./operator-overview.md), we can also match against all the other Clojure datatypes (lists, maps, sets, etc.).
+As you'll see when we review the [pattern matching operators](./patterns.md), we can also match against all the other Clojure datatypes (lists, maps, sets, etc.).
 
 Meander also supports *logic variables* that will be set to the value of all or a portion of the input value that matches the rest of the pattern.
-We'll learn more about these in [Operator Overview](./operator-overview.md), but we'll introduce the basics here to help us with more sophisticated examples.
+We'll learn more about these in [Pattern Matching](./patterns.md), but we'll introduce the basics here to help us with more sophisticated examples.
 A logic variable is simply a symbol that begins with a leading question mark.
 
 ```clojure
@@ -300,7 +300,7 @@ You can even scan multiple collections of things and find relationships between 
 ;;     {:name "Alice", :address {:type :vacation, :person-id 2, :info ""}})
 ```
 
-Here, the first clause pattern will match a Clojure map containing *at least* two keys, `:people` and `:addresses` (there may be other keys present; see [Operator Overview](./operator-overview.md)).
+Here, the first clause pattern will match a Clojure map containing *at least* two keys, `:people` and `:addresses` (there may be other keys present; see [Pattern Matching](./patterns.md)).
 The first `scan` will run through each item of the `:people` vector, matching each item to another map with `:name` and `:id` keys, binding the `?name` and `?id` logic variables to each value, in turn.
 The second `scan` will run through each item of the `:addresses` vector, confirming that each element is a map with a `:person-id` key.
 Since the same logic variable, `?id`, is used in this second scan, it will only match maps that have a `:person-id` value that corresponds to the current binding of `?id`.

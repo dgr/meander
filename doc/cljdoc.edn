@@ -1,7 +1,7 @@
 {:cljdoc.doc/tree
  [["Readme" {:file "README.md"}]
   ["Understand Meander's Pattern Matching Macros" {:file "doc/understanding.md"}]
-  ["Operator Overview" {:file "doc/operator-overview.md"}]
+  ["Pattern Matching" {:file "doc/patterns.md"}]
   ["Substitution" {:file "doc/substitution.md"}]
   ["Strategies" {:file "doc/strategies.md"}]
   ["Syntax Extensions" {:file "doc/defsyntax.md"}]
